@@ -59,7 +59,7 @@
 				630F9D7127079D4300F92E0F /* Networking */,
 				630F9D7227079D4D00F92E0F /* Model */,
 				630F9D7327079D5A00F92E0F /* View */,
-				630F9D7427079D6A00F92E0F /* ViewModel */,
+				630F9D7D2707A9B900F92E0F /* ViewModel */,
 				630F9D6727078DE400F92E0F /* Assets.xcassets */,
 				630F9D6927078DE400F92E0F /* Preview Content */,
 			);
@@ -98,7 +98,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		630F9D7427079D6A00F92E0F /* ViewModel */ = {
+		630F9D7D2707A9B900F92E0F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);

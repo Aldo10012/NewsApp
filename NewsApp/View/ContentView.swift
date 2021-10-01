@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    
+    let temp = tempData
+    
     var body: some View {
         
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
-                    ForEach(0..<10) { article in
-                        ArticleCellView()
+                    ForEach(temp.articles) { article in
+                        ArticleCellView(article: article)
                     }
                 }
             }.navigationTitle("Articles")

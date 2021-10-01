@@ -8,20 +8,23 @@
 import SwiftUI
 
 struct ArticleCellView: View {
+    
+    let article: Article
+    
     var body: some View {
         HStack() {
             VStack(alignment: .leading, spacing: 10) {
-                Text("Title goes Here! and ther is how far ill go")
+                Text(article.title)
                     .font(.system(size: 20, weight: .bold, design: .default))
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
                 
-                Text("Description goes here: Over teh past few weeks dfkjao oioiu hoi hu ur lej aoi ha ai  ")
+                Text(article.description)
                     .lineLimit(3)
                     .font(.system(size: 18, weight: .regular, design: .default))
             }
             
-            Image(uiImage: newsThumbnail.load())
+            Image(uiImage: article.urlToImage.load())
                 .resizable()
                 .frame(width: 140*1.0, height: 140)
                 .cornerRadius(8)
@@ -33,6 +36,6 @@ struct ArticleCellView: View {
 
 struct ArticleCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ArticleCellView()
+        ArticleCellView(article: exampleArticle1)
     }
 }
