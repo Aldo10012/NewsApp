@@ -13,7 +13,6 @@ struct HeadlinesView: View {
     let temp = tempData
     
     var body: some View {
-        
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
@@ -32,36 +31,3 @@ struct ContentView_Previews: PreviewProvider {
         HeadlinesView()
     }
 }
-
-
-
-
-
-let newsThumbnail = "https://us.123rf.com/450wm/alhovik/alhovik1709/alhovik170900031/86481591-breaking-news-background-world-global-tv-news-banner-design.jpg?ver=6"
-
-extension String {
-    func load() -> UIImage {
-        // try catch block
-        do{
-            // convert string to URL
-            guard let url = URL(string: self) else {
-                // return empty image if url is invalid
-                return UIImage()
-            }
-            
-            // convert url to data
-            let data: Data = try Data(contentsOf: url )
-            
-            // create UIImage object from Data
-            // and optional value if image in URL does not exist
-            return UIImage(data: data) ?? UIImage()
-            
-        } catch {
-            
-        }
-        
-        return UIImage()
-    }
-}
-
-
