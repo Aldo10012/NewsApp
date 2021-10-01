@@ -10,8 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        VStack {
-            ArticleCellView()
+        NavigationView {
+            ScrollView {
+                VStack(spacing: 20) {
+                    ForEach(0..<10) { article in
+                        ArticleCellView()
+                    }
+                }
+            }.navigationTitle("Articles")
         }
         
     }
