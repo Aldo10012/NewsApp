@@ -60,15 +60,3 @@ class HeadlinesViewModel: ObservableObject {
     
     
 }
-
-
-
-enum Result<T> {
-   case success(T)
-   case failure(Error)
-}
-
-enum EndPointError: Error {
-    case couldNotParse
-    case noData
-}
