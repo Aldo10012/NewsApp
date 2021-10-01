@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HeadlinesView: View {
     
-    
+    @ObservedObject var viewModel = HeadlinesViewModel()
     let temp = tempData
     
     var body: some View {
@@ -17,7 +17,7 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
-                    ForEach(temp.articles) { article in
+                    ForEach(viewModel.articles) { article in
                         ArticleCellView(article: article)
                     }
                 }
@@ -29,7 +29,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HeadlinesView()
     }
 }
 

@@ -9,16 +9,22 @@ import Foundation
 
 struct TopHeadlines: Codable, Identifiable {
     var id = UUID()
-    
     let articles: [Article]
+    
+    enum CodingKeys: String, CodingKey {
+        case articles
+    }
 }
 
 struct Article: Codable, Identifiable {
     var id = UUID()
-    
     let title: String
     let description: String
     let urlToImage: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title, description, urlToImage
+    }
     
 //    let source: Source
 //    let author: String
