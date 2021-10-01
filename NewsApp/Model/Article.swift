@@ -1,0 +1,28 @@
+//
+//  Article.swift
+//  NewsApp
+//
+//  Created by Alberto Dominguez on 10/1/21.
+//
+
+import Foundation
+
+struct TopHeadlines: Codable {
+    let articles: [Article]
+}
+
+struct Article: Codable {
+    let source: Source
+    let author: String
+    let title: String
+    let description: String
+    let url: String
+    let urlToImage: String
+    let publishedAt: String
+    let content: String
+}
+
+struct Source: Codable {
+    let id: String
+    let name: String
+}
