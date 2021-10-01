@@ -15,7 +15,7 @@ struct HeadlinesView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 20) {
+                LazyVStack(spacing: 20) {
                     ForEach(viewModel.articles) { article in
                         ArticleCellView(article: article)
                     }

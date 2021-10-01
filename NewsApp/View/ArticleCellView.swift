@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct ArticleCellView: View {
     
@@ -24,7 +25,7 @@ struct ArticleCellView: View {
                     .font(.system(size: 18, weight: .regular, design: .default))
             }
             
-            Image(uiImage: article.urlToImage.load())
+            KFImage(URL(string: article.urlToImage))
                 .resizable()
                 .frame(width: 140*1.0, height: 140)
                 .cornerRadius(8)
