@@ -39,14 +39,18 @@ class HeadlinesViewModel: ObservableObject {
                 return completion(Result.failure(EndPointError.noData))
             }
             
-            guard let headlines = try? JSONDecoder().decode(TopHeadlines.self, from: data) else {
-                return completion(Result.failure(EndPointError.couldNotParse))
+            do {
+                let headlines = try JSONDecoder().decode(TopHeadlines.self, from: data)
+                
+                DispatchQueue.main.sync {
+                    self.articles = headlines.articles
+                }
+                
+            } catch {
+                completion(Result.failure(EndPointError.couldNotParse))
+                print(error)
             }
-            
-            DispatchQueue.main.sync {
-                self.articles = headlines.articles
-            }
-            
+                    
             
         }.resume()
     }

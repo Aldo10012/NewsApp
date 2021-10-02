@@ -20,16 +20,19 @@ struct ArticleCellView: View {
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
                 
-                Text(article.description)
+                Text(article.description ?? "")
                     .lineLimit(3)
                     .font(.system(size: 18, weight: .regular, design: .default))
             }
             
-            KFImage(URL(string: article.urlToImage))
-                .resizable()
-                .frame(width: 140*1.0, height: 140)
-                .cornerRadius(8)
-                .aspectRatio(contentMode: .fill)
+            if let urlImage = article.urlToImage {
+                KFImage(URL(string: urlImage))
+                    .resizable()
+                    .frame(width: 140*1.0, height: 140)
+                    .cornerRadius(8)
+                    .aspectRatio(contentMode: .fill)
+            }
+            
             
         }.padding(.horizontal, 20)
     }
@@ -40,3 +43,4 @@ struct ArticleCellView_Previews: PreviewProvider {
         ArticleCellView(article: exampleArticle1)
     }
 }
+

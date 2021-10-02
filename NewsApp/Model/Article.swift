@@ -19,8 +19,8 @@ struct TopHeadlines: Codable, Identifiable {
 struct Article: Codable, Identifiable {
     var id = UUID()
     let title: String
-    let description: String
-    let urlToImage: String
+    let description: String?
+    let urlToImage: String?
     
     enum CodingKeys: String, CodingKey {
         case title, description, urlToImage
