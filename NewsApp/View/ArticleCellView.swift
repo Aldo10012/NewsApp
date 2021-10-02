@@ -21,9 +21,12 @@ struct ArticleCellView: View {
                     .multilineTextAlignment(.leading)
                 
                 Text(article.description ?? "")
-                    .lineLimit(3)
                     .font(.system(size: 18, weight: .regular, design: .default))
+                    .lineLimit(3)
+                    .multilineTextAlignment(.leading)
+                    
             }
+            .foregroundColor(.black)
             
             if let urlImage = article.urlToImage {
                 KFImage(URL(string: urlImage))

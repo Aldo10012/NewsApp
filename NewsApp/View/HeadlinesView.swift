@@ -17,7 +17,11 @@ struct HeadlinesView: View {
             ScrollView {
                 LazyVStack(spacing: 20) {
                     ForEach(viewModel.articles) { article in
-                        ArticleCellView(article: article)
+                        
+                        NavigationLink(destination: ArticleView()) {
+                            ArticleCellView(article: article)
+                        }
+                        
                     }
                 }
             }.navigationTitle("Articles")
