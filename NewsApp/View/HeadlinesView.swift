@@ -10,7 +10,7 @@ import SwiftUI
 struct HeadlinesView: View {
     
     @ObservedObject var viewModel = HeadlinesViewModel()
-    let temp = tempData
+//    let temp = tempData
     
     var body: some View {
         NavigationView {
@@ -18,7 +18,7 @@ struct HeadlinesView: View {
                 LazyVStack(spacing: 20) {
                     ForEach(viewModel.articles) { article in
                         
-                        NavigationLink(destination: ArticleView()) {
+                        NavigationLink(destination: ArticleView(url: article.url)) {
                             ArticleCellView(article: article)
                         }
                         

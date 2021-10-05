@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ArticleView: View {
+    @State var url: String
     
     var body: some View {
-        Text("Hello, World!")
+        Webview(url: self.url)
         
     }
 }
 
 struct ArticleView_Previews: PreviewProvider {
     static var previews: some View {
-        ArticleView()
+        ArticleView(url: "https://google.com")
     }
 }
