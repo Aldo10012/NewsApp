@@ -15,18 +15,12 @@ class SearchQueryViewModel: ObservableObject {
     let urlSession = URLSession.shared
     
     init() {
-        getAllArticles(query: "query") { result in
-            switch result {
-            case let .success(articles):
-                self.articles = articles
-            case let .failure(error):
-                print(error)
-            }
-        }
+        
     }
     
     func getAllArticles(query: String, completion: @escaping (Result<[Article]>) -> () ) {
         let fullURL = setParameters(query)
+        
         guard let url = URL(string: fullURL) else {return}
         let request = URLRequest(url: url)
         
@@ -44,6 +38,7 @@ class SearchQueryViewModel: ObservableObject {
                 
                 DispatchQueue.main.sync {
                     self.articles = headlines.articles
+                    completion(Result.success(headlines.articles))
                 }
                 
             } catch {

@@ -17,10 +17,10 @@ struct SearchQueryView: View {
             VStack {
                 // Search Field
                 HStack {
-                    TextField("Search", text: $searchField)
+                    TextField("Search", text: $searchField, onCommit: search)
                         .submitLabel(.search)
                     
-                    Button(action: {}) {
+                    Button(action: search ) {
                         Text("Search")
                             .foregroundColor(.white)
                             .padding(.vertical, 8)
@@ -37,6 +37,22 @@ struct SearchQueryView: View {
             .navigationTitle("Search")
             
         }
+    }
+    
+    func search() {
+        print(searchField)
+        
+        viewModel.getAllArticles(query: searchField) { result in
+            switch result {
+            case let .success(articles):
+                viewModel.articles = articles
+                print(viewModel.articles.count)
+            case let .failure(error):
+                print(error)
+            }
+        }
+        
+        print("search end")
     }
 }
 
