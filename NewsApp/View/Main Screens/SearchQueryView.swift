@@ -14,7 +14,7 @@ struct SearchQueryView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            ScrollView {
                 // Search Field
                 HStack {
                     TextField("Search", text: $searchField, onCommit: search)
@@ -26,13 +26,22 @@ struct SearchQueryView: View {
                             .padding(.vertical, 8)
                             .padding(.horizontal, 16)
                     }.background(.red).cornerRadius(8)
+                }.padding()
+                
+                LazyVStack(spacing: 20) {
+                    ForEach(viewModel.articles) { article in
+                        
+                        NavigationLink(destination: ArticleView(url: article.url)) {
+                            ArticleCellView(article: article)
+                        }
+                        
+                    }
                 }
                 
                 
-                Spacer()
                     
             }
-            .padding()
+            
             .textFieldStyle(.roundedBorder)
             .navigationTitle("Search")
             
@@ -52,7 +61,6 @@ struct SearchQueryView: View {
             }
         }
         
-        print("search end")
     }
 }
 
