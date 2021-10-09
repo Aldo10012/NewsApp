@@ -24,7 +24,7 @@ struct HeadlinesView: View {
                         
                     }
                 }
-            }.navigationTitle("Articles")
+            }.navigationTitle("Headlines")
         }
         
     }
